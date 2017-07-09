@@ -8,10 +8,10 @@ syntax match roamerDigest "\v[a-zA-Z0-9]*$"
 syntax match roamerDivider "\v(\|)"
 syntax match roamerComment "\v#.*$"
 
-highlight link roamerDirectory Todo
-highlight link roamerFile Error
-highlight link roamerDigest Comment
-highlight link roamerDivider String
+highlight link roamerDirectory Directory
+highlight link roamerFile Normal
+highlight link roamerDivider Type
+highlight link roamerDigest Type
 highlight link roamerComment Comment
 
 " Force vim to sync at least x lines. This solves the multiline comment not
