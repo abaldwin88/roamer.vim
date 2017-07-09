@@ -2,8 +2,8 @@ if exists("b:current_syntax")
   finish
 endif
 
-syntax region roamerDirectory start="\v^" end="\v\/" oneline
 syntax region roamerFile start="\v^" end="\v[^\/].\ze\|" oneline
+syntax region roamerDirectory start="\v^" end="\v\/" oneline
 syntax match roamerDigest "\v[a-zA-Z0-9]*$"
 syntax match roamerDivider "\v(\|)"
 syntax match roamerComment "\v#.*$"
