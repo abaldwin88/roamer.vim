@@ -4,8 +4,8 @@ endif
 
 syntax region roamerFile start="\v^" end="\v[^\/].\ze\|" oneline
 syntax region roamerDirectory start="\v^" end="\v\/" oneline
-syntax match roamerDigest "\v[a-zA-Z0-9]*$"
-syntax match roamerDivider "\v(\|)"
+syntax match roamerDigest "\v[a-zA-Z0-9]*$" conceal
+syntax match roamerDivider "\v(\|)" conceal
 syntax match roamerComment "\v#.*$"
 
 highlight link roamerDirectory Directory
