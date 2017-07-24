@@ -10,3 +10,4 @@ function! s:Roamer()
     setfiletype roamer
   endif
 endfunction
+setlocal conceallevel=2
