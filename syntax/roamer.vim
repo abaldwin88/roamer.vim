@@ -5,7 +5,7 @@ endif
 syntax region roamerFile start="\v^" end="\v[^\/].\ze\|" oneline
 syntax region roamerDirectory start="\v^" end="\v\/" oneline
 syntax match roamerDigest "\v\|.*$" conceal
-syntax match roamerComment "\v#.*$"
+syntax match roamerComment "\v\".*$"
 
 highlight link roamerDirectory Directory
 highlight link roamerFile Normal
