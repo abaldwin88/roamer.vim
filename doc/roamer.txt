@@ -1,0 +1,10 @@
+                                                       *'RoamerHijackNetrw'*
+Values: 0 or 1.
+Default: 1.
+
+If set to 1, doing a >
+    :edit <some directory>
+<
+will open up a window level roamer instead of a netrw in the target window.
+
+------------------------------------------------------------------------------
