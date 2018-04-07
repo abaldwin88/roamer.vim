@@ -18,6 +18,7 @@ function! s:writeRoamer()
   let dir = shellescape(@%[:-8])
   silent execute 'write !roamer --raw-in --path '. dir
   silent execute "%!roamer --raw-out --path ". dir
+  set nomodified
 endfunction
 
 function! roamer#openWindow(dir)
@@ -36,6 +37,7 @@ function! roamer#openWindow(dir)
     setlocal buftype=acwrite
     setlocal bufhidden=hide
     setlocal noswapfile
+    set nomodified
     "TODO: AGB 2018-03-25 ~ This should be handled by setting the filename
     "                       Not sure why this is necessary
     setfiletype roamer
