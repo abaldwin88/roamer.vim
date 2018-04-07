@@ -20,7 +20,6 @@ function! s:writeRoamer()
   silent execute "%!roamer --raw-out --path ". dir
 endfunction
 
-
 function! roamer#openWindow(dir)
     if !isdirectory(a:dir)
         return
@@ -31,7 +30,7 @@ function! roamer#openWindow(dir)
       return
     endif
 
-    silent exec 'enew | silent 0read ! roamer --raw-out --path ' . shellescape(a:dir)
+    silent execute "%!roamer --raw-out --path ". shellescape(a:dir)
     silent exec 'file '. fnameescape(name)
 
     setlocal buftype=acwrite
