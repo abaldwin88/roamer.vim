@@ -28,8 +28,7 @@ function! roamer#openWindow(dir)
 
     let name = fnameescape(a:dir.'.roamer')
     if bufnr(name) > 0
-      silent exec 'buffer '. bufnr(name)
-      return
+      silent exec 'bwipeout '. bufnr(name)
     endif
 
     silent execute "%!roamer --raw-out --path ". shellescape(a:dir)
