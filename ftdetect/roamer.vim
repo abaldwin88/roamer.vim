@@ -21,10 +21,18 @@ function! s:writeRoamer()
   set nomodified
 endfunction
 
+autocmd BufEnter *.roamer call s:enterRoamer()
+function! s:enterRoamer()
+  let dir = fnameescape(@%[:-8])
+  silent exec 'cd '. dir
+endfunction
+
 function! roamer#openWindow(dir)
     if !isdirectory(a:dir)
         return
     endif
+
+    silent exec 'cd '. fnameescape(a:dir)
 
     let name = fnameescape(a:dir.'.roamer')
     if bufnr(name) > 0
