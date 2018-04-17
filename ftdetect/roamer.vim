@@ -26,8 +26,9 @@ function! roamer#openWindow(dir)
         return
     endif
 
-    let name = a:dir.'.roamer'
-    if bufwinnr(name) > 0
+    let name = fnameescape(a:dir.'.roamer')
+    if bufnr(name) > 0
+      silent exec 'buffer '. bufnr(name)
       return
     endif
 
