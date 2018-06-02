@@ -12,6 +12,14 @@ function! s:Roamer()
 endfunction
 setlocal conceallevel=2
 
+let roamer_version = system("roamer --version")
+let roamer_major = roamer_version[0]
+let roamer_minor = roamer_version[2]
+let roamer_patch = roamer_version[4]
+if roamer_major == 0 && roamer_minor < 3
+  echoerr 'Required roamer version is 0.3.0 or greater'
+endif
+
 " `.v.roamer` is for a roamer sessions started inside vim
 
 autocmd BufWriteCmd *.v.roamer call s:writeRoamer()
