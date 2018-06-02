@@ -12,18 +12,19 @@ function! s:Roamer()
 endfunction
 setlocal conceallevel=2
 
-"TODO:  Might need to differentiate between roamer started in/outside vim
-autocmd BufWriteCmd *.roamer call s:writeRoamer()
+" `.v.roamer` is for a roamer sessions started inside vim
+
+autocmd BufWriteCmd *.v.roamer call s:writeRoamer()
 function! s:writeRoamer()
-  let dir = shellescape(@%[:-8])
+  let dir = shellescape(@%[:-10])
   silent execute 'write !roamer --raw-in --path '. dir
   silent execute "%!roamer --raw-out --path ". dir
   set nomodified
 endfunction
 
-autocmd BufEnter *.roamer call s:enterRoamer()
+autocmd BufEnter *.v.roamer call s:enterRoamer()
 function! s:enterRoamer()
-  let dir = fnameescape(@%[:-8])
+  let dir = fnameescape(@%[:-10])
   silent exec 'cd '. dir
 endfunction
 
@@ -34,7 +35,7 @@ function! roamer#openWindow(dir)
 
     silent exec 'cd '. fnameescape(a:dir)
 
-    let name = fnameescape(a:dir.'.roamer')
+    let name = fnameescape(a:dir.'.v.roamer')
     if bufnr(name) > 0
       silent exec 'bwipeout '. bufnr(name)
     endif
